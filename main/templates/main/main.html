@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<form action="" method="GET">
+    {% csrf_token %}
+
+    <input type="text" name="n" class="search" placeholder="Введите имя или телефон" value="{% if x %}  {{ x }}{% endif %}">
+    <button id="button" type="submit">Найти</button>
+</form>
+<div id="display">
+    {% if g %}
+        {% for i in g %}
+            <p>{{ i.name}} &nbsp;&nbsp;{{ i.phone }}</p>
+        {% endfor %}
+
+    {% else %}
+        {{ error_massage }}
+    {% endif %}
+</div>
+
+
+
+<table border="4" cellpadding="4" cellspacing="0" align="center" >
+    <tr align="center">
+        <td>Номер телефона</td>
+        <td>Фамилия</td>
+        <td>Должность</td>
+        <td>Адресс</td>
+        <td>Комната</td>
+        <td>Этаж</td>
+{#        <td>Фото</td>#}
+    </tr>
+    {%  for i in list_name %}
+    <tr align="center">
+        <td>{{ i.phone }}</td>
+        <td>{{ i.name }}</td>
+        <td>
+            {% if not i.position %}
+                -
+            {% else %}
+                {{ i.position }}
+            {% endif %}
+        </td>
+        <td>
+            {% if i.address == None %}
+                 -
+            {% else %}
+                {{ i.address }}
+            {% endif %}
+
+        </td>
+        <td>
+            {% if i.room == None %}
+                 -
+            {% else %}
+                {{ i.room }}
+            {% endif %}
+        </td>
+        <td>
+            {% if not i.floor %}
+                 -
+            {% else %}
+                {{ i.floor }}
+            {% endif %}
+        </td>
+{#        <td><img src="{{ i.photo.url }}"> </td>#}
+    </tr>
+    {% endfor %}
+</table>
+
+<form action="" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <div id="new">
+        <input type="text" name="new" class="new" placeholder="Введите фамилию...">
+        <input type="text" name="phone" class="new" placeholder="Введите телефон...">
+        <input type="text" name="address" class="new" placeholder="Введите адресс...">
+
+        <button id="button" type="submit">Записать</button>
+    </div>
+</form>
+
+
+<form action="" method="GET">
+    {% csrf_token %}
+
+    <input type="text" name="z" class="search" placeholder="Введите имя...">
+    <button type="submit" id="button">Удалить</button>
+</form>
+
+</body>
+</html>

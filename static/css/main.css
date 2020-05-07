@@ -1,0 +1,40 @@
+#button {
+    background: rgba(143, 187, 217, 0.31);
+    margin: 1px 4px 40px;
+    border-radius: 10px;
+    border: #5774a3 solid 2px;
+    height: 30px;
+    width: 90px;
+    padding: 4px;
+}
+.search{
+    margin: 40px 20px 20px 40.5%;
+    border-radius: 15px;
+    height: 30px;
+    width: 190px;
+    border: #a0a2a4 solid 2px;
+    padding: 4px;
+}
+#display {
+    margin: 1px 1px 80px 38%;
+    text-align: center;
+    background: rgba(116, 156, 187, 0.8);
+    max-width: 400px;
+    min-height: 50px;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.new {
+    padding-left: 10px;
+    border-radius: 15px;
+    height: 30px;
+    width: 190px;
+    border: #a0a2a4 solid 2px;
+}
+
+#new{
+    margin-left: 600px;
+    margin-top: 60px;
+
+}
